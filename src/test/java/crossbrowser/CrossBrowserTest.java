@@ -4,11 +4,15 @@ import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -40,6 +44,11 @@ public class CrossBrowserTest {
 			driver = new EdgeDriver();
 			break;
 			
+		case "firefox":
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+			break;
+			
 		default:
 			driver = null;
 			break;
@@ -54,11 +63,11 @@ public class CrossBrowserTest {
 	@Test
 	public void verifytitle() throws InterruptedException
 	{
-		
-		//open url
-		Thread.sleep(7000);
-		
-		
+
+	
+	
+		 driver.manage().window().maximize();
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));	
 		driver.get("https://dsportalapp.herokuapp.com/home");
 		String expectedTitle = "NumpyNinja";
 		
