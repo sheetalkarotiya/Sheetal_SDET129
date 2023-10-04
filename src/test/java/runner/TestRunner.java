@@ -1,23 +1,18 @@
-
 package runner;
-
-import org.junit.runner.RunWith;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-
+import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-
-plugin={"pretty", "html:target/MyReports/report.html",
-		"junit:target/MyReports/report.junit"},
-monochrome=false,		
-tags = "@test0067",
-features= {"src/test/resources/features"},
-glue= "stepdefinations")
+		plugin = {"pretty", "html:target/DSPortalReports/report.html",
+				"junit:target/DSPortalReports/report.junit"},
+		monochrome = false,
+		features = {"src/test/resources/features"},
+		glue = "stepdefinations")
 
 public class TestRunner {
-
 }
+
